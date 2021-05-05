@@ -16,10 +16,12 @@ int main()
     cout << h.extractMax() << " ";
     cout << h.getMax() << endl;
 	
-	int a[7] = {2, 3, 4, 5, 6, 7, 1};
-	MaxHeap h2(7);
+    int a[7] = {2, 3, 4, 5, 6, 7, 1};
+    MaxHeap h2(7);
     h2.heapify(a, 7);
     cout << h2.extractMax() << " ";
     cout << h2.getMax() << " " << endl;
+ 
+    cout << "The size: " << h.getSize() << endl;
     return 0;
 }
