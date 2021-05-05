@@ -1,4 +1,6 @@
 #include "maxHeap.h"
+#include <iostream>
+using namespace std;
 
 MaxHeap::MaxHeap(int cap)
 {
@@ -78,9 +80,14 @@ void MaxHeap::heapify(int *array, int len)
 		siftdown(i);
 }
 
-
-
-
+void MaxHeap::print(){
+	for (int i = 1; i <= size/2; i++){
+		cout << "Parent: " <<  arr[i] << " ";
+		cout << "Left Child: " << arr[left(i)] << " "; 
+		cout << "Right Child: " << arr[right(i)] << " ";
+		cout << endl;
+	}
+}
 
 
 

@@ -23,5 +23,6 @@ public:
     int extractMax();
 	int removeAt(int i);
     void heapify(int *array, int len);
+    void print();
 };
 #endif
