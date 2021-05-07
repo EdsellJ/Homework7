@@ -21,9 +21,5 @@ int main()
     h2.heapify(a, 7);
     cout << h2.extractMax() << " ";
     cout << h2.getMax() << " " << endl;
-	cout << "h:" << endl;
-    h.print();
-    	cout << "h2:" << endl;
-    h2.print();	
     return 0;
 }

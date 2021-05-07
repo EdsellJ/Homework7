@@ -8,9 +8,9 @@ MaxHeap::MaxHeap(int cap)
 	capacity = cap;
 	arr = new int[capacity];
 }
-int MaxHeap::parent(int i){return i/2;}
-int MaxHeap::left(int i){return (2*i);}
-int MaxHeap::right(int i){return ((2*i) + 1);}
+int MaxHeap::parent(int i){return (i-1)/2;}
+int MaxHeap::left(int i){return ((2*i) + 1);}
+int MaxHeap::right(int i){return ((2*i) + 2);}
 int MaxHeap::getSize(){return size;}
 bool MaxHeap::isLeaf(int i){
 	return (i < size/2) ? false:true;
@@ -30,13 +30,13 @@ void MaxHeap::siftdown(int i){
 	while(!isLeaf(i)){
 		int l = left(i);
 		int r = right(i);
-		int smaller = arr[l];
+		int larger = arr[l];
 		if(r < size)
-			smaller = (arr[l] < arr[r])?l:r;
-		if(arr[i] <= arr[smaller])
+			larger = (arr[l] > arr[r])?l:r;
+		if(arr[i] >= arr[larger])
 			break;
-		swap(&arr[i], &arr[smaller]);
-		i = smaller;
+		swap(&arr[i], &arr[larger]);
+		i = larger;
 	}
 }
 void MaxHeap::insert(int k){
@@ -60,7 +60,8 @@ int MaxHeap::removeAt(int i) {
 
 int MaxHeap::extractMax() {    
 	if(size <= 0) throw Underflow();
-	if(size == 1) return arr[--size];            
+	if(size == 1) 
+		return arr[--size];    
 	int result = arr[0];    
 	arr[0] = arr[--size];    
 	siftdown(0);    
@@ -80,16 +81,13 @@ void MaxHeap::heapify(int *array, int len)
 		siftdown(i);
 }
 
-void MaxHeap::print(){
-	for (int i = 1; i <= size/2; i++){
-		cout << "Parent: " <<  arr[i] << " ";
-		cout << "Left Child: " << arr[left(i)] << " "; 
-		cout << "Right Child: " << arr[right(i)] << " ";
-		cout << endl;
+/*void MaxHeap::print(){
+	for (int i = 0; i < size; i++){
+		cout << arr[i] << " ";
 	}
+	cout << endl;
 }
-
-
+*/
 
 
 
