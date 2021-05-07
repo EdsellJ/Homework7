@@ -21,7 +21,7 @@ void MaxHeap::swap(int *x, int *y){
 	*y = temp;
 }
 void MaxHeap::siftup(int i){
-	while(i > 0 && arr[parent(i)] > arr[i]){
+	while(i > 0 && arr[parent(i)] < arr[i]){
 		swap(&arr[i], &arr[parent(i)]);
 		i = parent(i);
 	}
